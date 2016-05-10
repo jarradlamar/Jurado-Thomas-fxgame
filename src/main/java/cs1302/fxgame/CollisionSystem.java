@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.michaelcotterell.game.Game;
 
 import cs1302.fxgame.Actions;
+import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.paint.Color;
@@ -20,8 +21,13 @@ public class CollisionSystem { // STATIC CLASS. JUST A BUNCH OF METHODS THAT TES
 		
 //		System.out.println("Obj1 :" + obj1.getBoundsInParent().getMaxX() + " " + "Obj1" + obj2.getBoundsInParent().getMaxX() );
 //		System.exit(0);
+		Bounds bound = obj1.getBoundsInLocal();
+		Bounds screenBounds = obj1.localToScreen(bound);
 		
-		if (  obj1.getBoundsInParent().intersects(obj2.getBoundsInParent()) ){
+		Bounds bound2 = obj2.getBoundsInLocal();
+		Bounds screenBounds2 = obj2.localToScreen(bound2);
+		
+		if (  screenBounds.intersects(screenBounds2) ){
 			
 			System.out.println("Obj1 :" + obj1.getBoundsInParent().getMaxX() + 
 					" " + "Obj1" + obj2.getBoundsInParent().getMaxX() );

@@ -64,7 +64,7 @@ if(follow ==  true ){
 
 	yPlacementInt += 4; // a tag on to be used for the CollisionSystem
 	
-	this.setTranslateY( this.getTranslateY() + 4); // moves the rectangle down the screen by con.getY().
+	this.setTranslateY( s.getTranslateY() + 4); // moves the rectangle down the screen by con.getY().
 	
 	
 }

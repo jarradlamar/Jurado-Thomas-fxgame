@@ -70,7 +70,7 @@ if(l1.isEmpty() == true){
 }
 	
 public boolean canShoot(){
-	return Math.abs(TimeSpan.now().getSeconds()-timeShotFired.getSeconds() ) >1;
+	return Math.abs(TimeSpan.now().getMilliseconds()-timeShotFired.getMilliseconds() ) >200;
 }
 
 
@@ -91,9 +91,9 @@ if( sys.collisionAction((Alien) (a.getArmy().get(r)), l1.get(i))){
 	a.getArmy().remove(r);
 	l1.remove(i);
 	
-	r--;
-	i--;
-	}
+//	r--;
+//	i--;
+ 	}
 }
 
 }
