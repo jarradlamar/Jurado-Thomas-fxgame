@@ -30,10 +30,10 @@ public void run(GameLab g){
 		alien.movement(4);
 }
 
-if(control == true){
+// if(control == true){
 
-	alien.attack(g);
-}
+// 	alien.attack(g);
+// }
 
 }
 

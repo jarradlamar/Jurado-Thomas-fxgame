@@ -19,7 +19,7 @@ threadID = iD;
 LeftHorizontalBound = l;
 RightHorizontalBound = r;
 speed = s;
-System.out.println(player.getTranslateX());
+//System.out.println(player.getTranslateX());
 
 }
 

@@ -1,4 +1,5 @@
 package cs1302.fxgame;
+import cs1302.fxgame.Laser;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -27,9 +28,12 @@ protected double jumpLength;
 protected double alienWidth;
 protected double alienHeight;
 protected double alienSpacing;
-protected ArrayList<Alien> army = new ArrayList<>();
 
-public AlienFleet(double SCREENWIDTH, double SCREENHEIGHT){
+protected ArrayList<Alien> army = new ArrayList<>();
+protected ArrayList<Laser> laserList;
+
+public AlienFleet(double SCREENWIDTH, double SCREENHEIGHT, ArrayList<Laser> laserList){
+	this.laserList  = laserList;
 	this.SCREENWIDTH = SCREENWIDTH;
 	rowLength = SCREENWIDTH * (1-.3);
 
@@ -92,10 +96,10 @@ public void make( int number, GameLab gl){
 
 
 public void fire(GameLab g){
-	Random ran = new Random(army.size());
+	Random ran = new Random();
 	if(army.size()>0){
-	this.fleetNode.getChildren().get(ran.nextInt(army.size()));
-	this.alienSprite.alien.attack(g);
+			System.out.println("It was able to fire One shot!!!");
+			army.get( ran.nextInt( army.size() ) ).attack(g, laserList);
 	}
 	
 }
@@ -136,7 +140,6 @@ private String moveLeft(){
 
 
 public void shiftArmy(){
-	 			
 				if (direction == "moveRight"){
 					direction = this.moveRight( );
 				} //if

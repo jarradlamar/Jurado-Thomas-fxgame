@@ -1,6 +1,7 @@
 package cs1302.fxgame;
 
 import java.util.ArrayList;
+import cs1302.fxgame.Laser;
 
 import com.michaelcotterell.game.Game;
 
@@ -13,7 +14,7 @@ import javafx.scene.input.KeyCode;
 public class Alien extends Sprite implements Actions {
 
 protected Image img1;
-protected EnemyLaser l1;
+//protected EnemyLaser l1;
 protected Group root;
 
 	public Alien( GameLab g, double xPlacement, double yPlacement, Group root){
@@ -26,7 +27,7 @@ protected Group root;
 		
 		this.setX(xPlacement);
 		this.setY(yPlacement); /* Since a square image is being loaded the image will be placed using it's top left-hand pixel. */
-		l1 = new EnemyLaser(g, this);
+		//l1 = new EnemyLaser(g, this);
 	}
 	
 	public void changeTo( Image i){
@@ -39,8 +40,12 @@ protected Group root;
 				
 	}
 	
-	public void attack(GameLab g){
-	l1.runAlien(this);
+	public void attack(GameLab g, ArrayList<Laser> laserList){
+		//System.out.println("it made it to the attack method inside Alien!!!!");
+
+		Laser laser = new Laser(g, this, false);
+		laserList.add(laser);
+	//l1.runAlien(this);
 
 	}
 	
