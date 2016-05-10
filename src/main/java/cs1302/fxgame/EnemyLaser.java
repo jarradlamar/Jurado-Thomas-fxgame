@@ -22,7 +22,7 @@ public EnemyLaser(GameLab g, Sprite s){
 	 trigger = true;
 	 
 	 if(s.getTranslateX() == 0){
-		 xPlacement = (int) s.getX() + 12;
+		 xPlacement = (int) s.getX() + 100; // the additional 100 keeps the lasers right under the alien ship they are fired from.
 	 }else{
 		 
 	 xPlacement = (int) s.getTranslateX() + 11;
@@ -64,7 +64,7 @@ if(trigger ==  true ){
 
 if(yPlacementInt >= 600){ // use this is CollisionSystem.
 	con.setVisible(false);
-	con.setTranslateY(s.getY()-100); // the number being subtracted has to be the same as ylocation in the constructor of AlienFleet.
+	con.setTranslateY(s.getY()-0); // the number being subtracted has to be the same as ylocation in the constructor of AlienFleet.
 	yPlacementInt = (int) s.getY(); // sets back to original value and stops there from being a loop of this same command in the GameLab update method
 		}
 

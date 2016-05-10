@@ -19,9 +19,7 @@ protected EnemyLaser l1;
 		super();
 		img1 = new Image("file:src/main/java/alienSmall.png");
 		changeTo(img1);
-		/* For some reason the LeftHorizontalBound copies the value of xPlacement. 
-		 * This results in a situation where wherever the ship is placed originally on the scene, that's it's leftMostBound.
-		 * IDK why this is happening so the ship will always pop-up at (0,800)*/
+		
 		this.setX(xPlacement);
 		this.setY(yPlacement); /* Since a square image is being loaded the image will be placed using it's top left-hand pixel. */
 		l1 = new EnemyLaser(g, this);
