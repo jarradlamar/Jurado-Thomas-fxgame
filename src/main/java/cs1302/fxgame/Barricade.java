@@ -6,7 +6,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class Barricade extends Sprite {
+public class Barricade {
 	
 
 private ImageView viewer;

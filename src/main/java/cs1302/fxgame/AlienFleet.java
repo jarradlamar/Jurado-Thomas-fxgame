@@ -91,7 +91,7 @@ public void make( int number, GameLab gl){
 
 public void fire( int first,int last, GameLab gl){
 	
-	for(int y=first;y<last;y++)
+	for(int y=0;y<army.size();y++)
 	this.fleetNode.getChildren().get(y);
 	
 }
