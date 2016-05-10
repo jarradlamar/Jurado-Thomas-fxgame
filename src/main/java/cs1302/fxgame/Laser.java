@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class Laser {
+public class Laser implements Actions {
 	
 	
 	protected Rectangle con;
@@ -14,10 +14,11 @@ public class Laser {
 	protected int yPlacementInt;
 	protected int xPlacementInt;
 	protected boolean follow;
-	protected int index;
-	 
-public Laser(GameLab g, Sprite s){
+	static int index =0;
+	protected int id;
 	
+public Laser(GameLab g, Sprite s){
+	 id = index;
 	 con = new Rectangle(2,5,Color.YELLOW);
 	 follow = true;
 	 
@@ -38,6 +39,7 @@ public Laser(GameLab g, Sprite s){
 	 con.setY(yPlacement);
 
 	 g.getSceneNodes().getChildren().add(con); // adds the rectangle from the list index to the scene of GameLab.
+	 this.increaseIndex();
 		}
 
 
@@ -46,6 +48,9 @@ public void switchBoolValue( boolean fol){
 	this.follow = fol ;
 }
 
+public void increaseIndex(){
+	index++;
+}
 
 public void run(Sprite s){
 
@@ -114,4 +119,13 @@ public int getYPlacementInt(){
 	 return this.yPlacementInt;
 	}
 
+public void hit(GameLab gl){
+	System.out.println("Removed");
+	gl.getSceneNodes().getChildren().remove(this.con);
+}
+
+
+public int getID(){
+	return id;
+}
 }

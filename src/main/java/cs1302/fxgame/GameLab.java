@@ -22,6 +22,7 @@ protected int x;
 protected CollisionSystem sys;
 protected TimeSpan start;
 protected TimeSpan then;
+protected Barricade bari;
 
 public GameLab(Stage stage){ // a = 60. b and c = 800.
 	super(stage, "GameLab", 60, 800, 650); //40 is perfect for right now.
@@ -30,7 +31,7 @@ public GameLab(Stage stage){ // a = 60. b and c = 800.
 	r.setY(0);
 	getSceneNodes().getChildren().add(r);
 	x=0;
-	
+	bari = new Barricade(30,520);
 	a = new AlienFleet(800,650);
 	a.make(54, this);
 	
@@ -45,14 +46,14 @@ public GameLab(Stage stage){ // a = 60. b and c = 800.
 	
 //	rT2 = new InvertedRecThread("Hey", 650, 300);
 //	rT2.setPriority(5);
-	getSceneNodes().getChildren().addAll( p.getViewerNodeOfSprite());
+	getSceneNodes().getChildren().addAll( p.getViewerNodeOfSprite(), bari.getBarricadeNode());
 
 }
 
 public void build(){
 	for(int t=0; t < 1; t++){ // if error: missing = in < l1.size()?
-	System.out.println("added :" + t);
 	l1.add( new Laser(this,p.getShip()) ); // y, x	
+	System.out.println("added :" + l1.get(t).getID());
 	}
 }
 
@@ -62,13 +63,9 @@ if(l1.isEmpty() == true){
 } else{
 	for(int y =0; y< l1.size(); y++){
 		l1.get(y).run(p.getShip()); //checking and making it go forward.
-		if(l1.get(y).yPlacementInt <= 0){
-			l1.remove(y);// deleting. These to things will continue until nothing is left. 
-						// Hoping this removes the rectangle from the scene after it comes back dark red and under the ship.
-			}
 		}
 	}
-}	
+}
 	
 
 
@@ -83,10 +80,12 @@ a.shiftArmy();
 start = TimeSpan.now();
 }
 
+for(int i=0; i> l1.size(); i++ ){
+sys.collisionAction(a.fleet.get(i), l1.get(i),this);
 p.run(ga);
 this.a.fire(0,11, this);
 runList();
-
+}
 
 
 /* Ideally I want a rectangle to go forward to a certain length and then another rectangle pop up behind it.*/

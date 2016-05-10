@@ -3,6 +3,7 @@ package cs1302.fxgame;
 import java.util.ArrayList;
 
 import javafx.scene.Group;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 

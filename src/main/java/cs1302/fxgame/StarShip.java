@@ -6,7 +6,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 
-public class StarShip extends Sprite {
+public class StarShip extends Sprite implements Actions {
 
 private Image img1;
 
@@ -47,5 +47,9 @@ private Image img1;
 	
 	public ImageView getViewerNode(){
 		return this;
+	}
+	
+	public void hit(GameLab gl){
+	gl.getSceneNodes().getChildren().remove(this);
 	}
 }

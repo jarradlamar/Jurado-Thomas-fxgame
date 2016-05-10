@@ -8,7 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 
-public class Alien extends Sprite {
+public class Alien extends Sprite implements Actions {
 
 protected Image img1;
 protected EnemyLaser l1;
@@ -47,5 +47,9 @@ protected EnemyLaser l1;
 	
 	public ImageView getViewerNode(){
 		return this;
+	}
+	
+	public void hit(GameLab gl){
+	gl.getSceneNodes().getChildren().remove(this);
 	}
 }
