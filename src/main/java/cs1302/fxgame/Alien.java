@@ -40,7 +40,7 @@ protected Group root;
 	}
 	
 	public void attack(GameLab g){
-	l1.shoot(this);	
+	l1.runAlien(this);
 
 	}
 	

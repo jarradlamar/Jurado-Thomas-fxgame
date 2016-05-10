@@ -22,7 +22,10 @@ public class CollisionSystem { // STATIC CLASS. JUST A BUNCH OF METHODS THAT TES
 //		System.exit(0);
 		
 		if (  obj1.getBoundsInParent().intersects(obj2.getBoundsInParent()) ){
-//			System.exit(0);
+			
+			System.out.println("Obj1 :" + obj1.getBoundsInParent().getMaxX() + 
+					" " + "Obj1" + obj2.getBoundsInParent().getMaxX() );
+					
 			obj1.hit(); //alien to die
 			obj2.hit(); //bullet to dissapear
 			return true;

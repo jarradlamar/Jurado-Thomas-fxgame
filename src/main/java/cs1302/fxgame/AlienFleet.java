@@ -1,6 +1,7 @@
 package cs1302.fxgame;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import javafx.scene.Group;
 import javafx.scene.layout.FlowPane;
@@ -89,10 +90,13 @@ public void make( int number, GameLab gl){
 	
 }// end of made()
 
-public void fire( int first,int last, GameLab gl){
-	
-	for(int y=0;y<army.size();y++)
-	this.fleetNode.getChildren().get(y);
+
+public void fire(GameLab g){
+	Random ran = new Random(army.size());
+	if(army.size()>0){
+	this.fleetNode.getChildren().get(ran.nextInt(army.size()));
+	this.alienSprite.alien.attack(g);
+	}
 	
 }
 
@@ -132,7 +136,7 @@ private String moveLeft(){
 
 
 public void shiftArmy(){
-	 			System.out.println("direction: " + direction);
+	 			
 				if (direction == "moveRight"){
 					direction = this.moveRight( );
 				} //if

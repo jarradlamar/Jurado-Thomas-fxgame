@@ -21,8 +21,9 @@ protected ArrayList<Laser> l1;
 protected int x;
 protected CollisionSystem sys;
 protected TimeSpan start;
-protected TimeSpan then;
 protected Barricade bari;
+protected int numBullets =0;
+protected TimeSpan timeShotFired = TimeSpan.now();
 
 public GameLab(Stage stage){ // a = 60. b and c = 800.
 	super(stage, "GameLab", 60, 800, 650); //40 is perfect for right now.
@@ -40,8 +41,9 @@ public GameLab(Stage stage){ // a = 60. b and c = 800.
 	
 	l1 = new ArrayList<Laser>();
 	sys = new CollisionSystem();
+	
 	start = TimeSpan.now();
-	then = TimeSpan.now();
+
 	
 	
 //	rT2 = new InvertedRecThread("Hey", 650, 300);
@@ -53,13 +55,13 @@ public GameLab(Stage stage){ // a = 60. b and c = 800.
 public void build(){
 	for(int t=0; t < 1; t++){ // if error: missing = in < l1.size()?
 	l1.add( new Laser(this,p.getShip()) ); // y, x	
-	System.out.println("added :" + l1.get(t).getID());
+
 	}
 }
 
 public void runList(){
 if(l1.isEmpty() == true){
-	System.out.println("Size of l1: " + l1.size());
+
 } else{
 	for(int y =0; y< l1.size(); y++){
 		l1.get(y).run(p.getShip()); //checking and making it go forward.
@@ -67,7 +69,9 @@ if(l1.isEmpty() == true){
 	}
 }
 	
-
+public boolean canShoot(){
+	return Math.abs(TimeSpan.now().getSeconds()-timeShotFired.getSeconds() ) >1;
+}
 
 
 
@@ -95,17 +99,19 @@ if( sys.collisionAction((Alien) (a.getArmy().get(r)), l1.get(i))){
 }
 
 p.run(ga);
-this.a.fire(0,11, this);
+a.fire(this);
 runList();
 	
 
-
+if (ga.getKeyManager().isKeyPressed(KeyCode.SPACE) && ( ( this.canShoot() ) || ( numBullets == 0) ) ){ // follow is being set equal ot false but cant go back to being true fix this.
+	 numBullets += 1;
+	 timeShotFired = TimeSpan.now();
+	 this.build();
+	}
 
 
 /* Ideally I want a rectangle to go forward to a certain length and then another rectangle pop up behind it.*/
-if (ga.getKeyManager().isKeyPressed(KeyCode.SPACE)){ // follow is being set equal ot false but cant go back to being true fix this.
-this.build();
-	}
+
 }
 
 

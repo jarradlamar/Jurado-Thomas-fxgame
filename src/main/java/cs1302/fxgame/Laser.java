@@ -33,7 +33,7 @@ public Laser(GameLab g, Sprite s){
 	 xPlacement = (int) s.getTranslateX() + 11;
 	 }
 	 
-	 System.out.println("Alien x placement:" + xPlacement);
+	 
 	 yPlacement = (int) s.getY() + 22;
 	 // these two are returned using get statements.
 	 yPlacementInt = yPlacement;
@@ -48,7 +48,7 @@ public Laser(GameLab g, Sprite s){
 
 
 public void switchBoolValue( boolean fol){
-	System.out.println("Follow Switched to false");
+	
 	this.follow = fol ;
 }
 
@@ -60,7 +60,7 @@ public void run(Sprite s){
 
 
 if(follow ==  true ){
-	System.out.println(yPlacementInt);
+	
 	yPlacementInt -= 4; // a tag on to be used for the CollisionSystem
 	
 	this.setTranslateY( this.getTranslateY()- 4); // moves the rectangle down the screen by con.getY().
@@ -78,8 +78,6 @@ if(yPlacementInt <= 0){ // use this is CollisionSystem.
 //	yPlacementInt = (int) s.getY(); // sets back to original value and stops there from being a loop of this same command in the GameLab update method
 	this.follow = true;
 	
-	System.out.println(   this + " is now invisible. Follow Switched Back to true and using next ammo index");
-
 	
 
 	
@@ -92,7 +90,7 @@ public void runAlien(Sprite s){
 
 
 if(follow ==  true ){
-	System.out.println(yPlacementInt);
+
 	yPlacementInt += 4; // a tag on to be used for the CollisionSystem
 	
 	this.setTranslateY( this.getTranslateY() - 4); // moves the rectangle down the screen by con.getY().

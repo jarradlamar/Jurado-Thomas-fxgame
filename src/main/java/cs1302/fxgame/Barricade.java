@@ -51,8 +51,5 @@ public void damage(){ // must be between 0 and 1.
 
 }
 
-public void correctDamage(){
-	
-}
 
 }
