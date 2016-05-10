@@ -80,8 +80,18 @@ a.shiftArmy();
 start = TimeSpan.now();
 }
 
-for(int i=0; i> l1.size(); i++ ){
-sys.collisionAction(a.fleet.get(i).alien, l1.get(i),this);
+for(int r = 0; r < a.getArmy().size(); r++){
+	for(int i = 0; i < l1.size(); i++){
+
+if( sys.collisionAction((Alien) (a.getArmy().get(r)), l1.get(i))){
+	a.getArmy().remove(r);
+	l1.remove(i);
+	
+	r--;
+	i--;
+	}
+}
+
 }
 
 p.run(ga);
@@ -95,6 +105,7 @@ runList();
 /* Ideally I want a rectangle to go forward to a certain length and then another rectangle pop up behind it.*/
 if (ga.getKeyManager().isKeyPressed(KeyCode.SPACE)){ // follow is being set equal ot false but cant go back to being true fix this.
 this.build();
+	}
 }
 
 
@@ -114,7 +125,7 @@ this.build();
 //System.out.println(d);
 //}
 
-}
+
 
 //CollisionSystem.collisionLaser1(p.getLaser(), 0);
 //this.rT2.run();

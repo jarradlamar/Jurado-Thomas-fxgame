@@ -16,9 +16,12 @@ public class Laser extends Rectangle implements Actions {
 	protected boolean follow;
 	static int index =0;
 	protected int id;
+	protected GameLab g;
 	
 public Laser(GameLab g, Sprite s){
 	super(2, 5,Color.YELLOW);
+	
+	this.g = g;
 	 id = index;
 	 
 	 follow = true;
@@ -120,9 +123,9 @@ public int getYPlacementInt(){
 	 return this.yPlacementInt;
 	}
 
-public void hit(GameLab gl){
-	System.out.println("Removed");
-	gl.getSceneNodes().getChildren().remove(this);
+public void hit(){
+	
+	g.getSceneNodes().getChildren().remove(this);
 }
 
 

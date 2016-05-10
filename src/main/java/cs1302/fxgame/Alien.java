@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import com.michaelcotterell.game.Game;
 
+import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -12,11 +14,13 @@ public class Alien extends Sprite implements Actions {
 
 protected Image img1;
 protected EnemyLaser l1;
+protected Group root;
 
-	public Alien( GameLab g, double xPlacement, double yPlacement){
+	public Alien( GameLab g, double xPlacement, double yPlacement, Group root){
 		/*The ImageView node appears at the location given by the doubles given in the constructor.*/
-	
+		
 		super();
+		this.root = root;
 		img1 = new Image("file:src/main/java/alienSmall.png");
 		changeTo(img1);
 		
@@ -49,7 +53,13 @@ protected EnemyLaser l1;
 		return this;
 	}
 	
-	public void hit(GameLab gl){
-	gl.getSceneNodes().getChildren().remove(this);
+	
+	
+	
+	public void hit(){
+	root.getChildren().remove(this);
 	}
+
+
+	
 }

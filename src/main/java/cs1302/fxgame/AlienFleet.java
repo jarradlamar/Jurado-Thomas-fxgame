@@ -9,7 +9,7 @@ import javafx.scene.layout.VBox;
 
 public class AlienFleet {
 
-protected ArrayList<AlienSprite> fleet;
+private AlienSprite alienSprite;
 private String direction = "moveRight";
 protected int xlocation;
 protected int ylocation;
@@ -26,6 +26,7 @@ protected double jumpLength;
 protected double alienWidth;
 protected double alienHeight;
 protected double alienSpacing;
+protected ArrayList<Alien> army = new ArrayList<>();
 
 public AlienFleet(double SCREENWIDTH, double SCREENHEIGHT){
 	this.SCREENWIDTH = SCREENWIDTH;
@@ -39,7 +40,7 @@ public AlienFleet(double SCREENWIDTH, double SCREENHEIGHT){
 
 	this.alienSpacing = ( rowLength-alienWidth*(cols) )/(cols-1);
 
-	fleet = new ArrayList();
+	
 	xlocation = 0;
 	ylocation = 0;
 	fleetNode = new Group();
@@ -75,9 +76,9 @@ public void make( int number, GameLab gl){
 			xlocation =0;
 			}
 		
-		fleet.add(r, new AlienSprite(gl,xlocation,ylocation));
-		System.out.println(r);
-		fleetNode.getChildren().add(fleet.get(r).alien.getViewerNode());
+		alienSprite = new AlienSprite(gl, xlocation, ylocation,fleetNode);
+		army.add(alienSprite.alien);
+		fleetNode.getChildren().add(alienSprite.alien);
 		xlocation += 60;
 		
 	}
@@ -91,7 +92,7 @@ public void make( int number, GameLab gl){
 public void fire( int first,int last, GameLab gl){
 	
 	for(int y=first;y<last;y++)
-	fleet.get(y).alien.attack(gl);
+	this.fleetNode.getChildren().get(y);
 	
 }
 
@@ -142,6 +143,9 @@ public void shiftArmy(){
 
 }
 
+public ArrayList<Alien> getArmy(){
+	return army;
+}
 
 }
 
