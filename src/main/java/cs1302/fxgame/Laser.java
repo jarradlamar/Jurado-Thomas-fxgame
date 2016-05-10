@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class Laser implements Actions {
+public class Laser extends Rectangle implements Actions {
 	
 	
 	protected Rectangle con;
@@ -18,8 +18,9 @@ public class Laser implements Actions {
 	protected int id;
 	
 public Laser(GameLab g, Sprite s){
+	super(2, 5,Color.YELLOW);
 	 id = index;
-	 con = new Rectangle(2,5,Color.YELLOW);
+	 
 	 follow = true;
 	 
 	 if(s.getTranslateX() == 0){
@@ -38,7 +39,7 @@ public Laser(GameLab g, Sprite s){
 	 con.setX(xPlacement);
 	 con.setY(yPlacement);
 
-	 g.getSceneNodes().getChildren().add(con); // adds the rectangle from the list index to the scene of GameLab.
+	 g.getSceneNodes().getChildren().add(this); // adds the rectangle from the list index to the scene of GameLab.
 	 this.increaseIndex();
 		}
 

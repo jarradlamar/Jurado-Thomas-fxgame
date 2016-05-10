@@ -81,7 +81,7 @@ start = TimeSpan.now();
 }
 
 for(int i=0; i> l1.size(); i++ ){
-sys.collisionAction(a.fleet.get(i), l1.get(i),this);
+sys.collisionAction(a.fleetNode.getChildren().get(i), l1.get(i),this);
 p.run(ga);
 this.a.fire(0,11, this);
 runList();
