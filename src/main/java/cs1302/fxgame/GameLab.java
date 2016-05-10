@@ -73,7 +73,7 @@ if(l1.isEmpty() == true){
 public void update(Game ga, GameTime t){
 	
 
-sys.collisionAction2(a, l1);
+//sys.collisionAction2(a, l1);
 p.run(ga);
 this.a.fire(0,11, this);
 runList();

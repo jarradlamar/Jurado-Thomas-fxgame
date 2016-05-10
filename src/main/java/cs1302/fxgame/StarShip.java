@@ -14,7 +14,7 @@ private Image img1;
 		/*The ImageView node appears at the location given by the doubles given in the constructor.*/
 	
 		super();
-		img1 = new Image("/starShip.png");
+		img1 = new Image("file:src/main/java/starShip.png");
 		changeTo(img1);
 		/* For some reason the LeftHorizontalBound copies the value of xPlacement. 
 		 * This results in a situation where wherever the ship is placed originally on the scene, that's it's leftMostBound.
