@@ -9,6 +9,10 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+
+/*This class basically represents and alienFleet. This class helps to syncronize motion 
+by using the shift method. It also provides a mechanism by which the 
+aliens can take turn shooting*/
 public class AlienFleet {
 
 private AlienSprite alienSprite;

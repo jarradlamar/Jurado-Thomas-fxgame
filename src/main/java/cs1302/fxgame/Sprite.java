@@ -3,6 +3,7 @@ package cs1302.fxgame;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+/*Basically a tailored ImageView object*/
 public class Sprite extends ImageView{
  /* [Side Note]: ImageView is recognized as a subclass of the superclass Node*/
 	

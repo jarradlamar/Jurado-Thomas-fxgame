@@ -6,6 +6,8 @@ import javafx.geometry.Bounds;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+
+/*Lazers can come out of a Sprite object like an alien or Star Ship*/
 public class Laser extends Rectangle implements Actions {
 	
 	

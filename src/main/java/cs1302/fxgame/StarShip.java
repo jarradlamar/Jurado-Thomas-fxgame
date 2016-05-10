@@ -6,6 +6,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 
+/*The thing that you control with your space bar*/
 public class StarShip extends Sprite implements Actions {
 
 private Image img1;

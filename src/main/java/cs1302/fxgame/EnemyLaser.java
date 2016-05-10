@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+/*This class serves no function. It was replaced by Lazer*/
 public class EnemyLaser extends Rectangle implements Actions {
 	
 	

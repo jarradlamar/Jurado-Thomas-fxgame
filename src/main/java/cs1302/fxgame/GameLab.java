@@ -41,7 +41,7 @@ protected CollisionSystem sys;
 protected TimeSpan start;
 protected int numBullets =0;
 protected TimeSpan timeShotFired = TimeSpan.now();
-
+/*This class basically captures the flow of the game. Update updates everything*/
 public GameLab(Stage stage){ // a = 60. b and c = 800.
 	super(stage, "GameLab", 60, 800, 650); //40 is perfect for right now.
 	loseButton = new Button("YOU'VE LOST!!!!!!!");

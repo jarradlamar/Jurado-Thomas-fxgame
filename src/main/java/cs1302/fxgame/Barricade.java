@@ -6,6 +6,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+
+/*This represents a Barricade object. Upon being shot it reacts which is why
+this calss implements Actions. However, the hit method is not used because 
+it had some errors*/
 public class Barricade extends Group implements Actions {
 	
 

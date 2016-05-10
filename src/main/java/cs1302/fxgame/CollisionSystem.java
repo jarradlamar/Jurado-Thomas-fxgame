@@ -11,11 +11,16 @@ import javafx.scene.Node;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+
+
+/*This class basically controls what happens when two objects enter the same coordinate space*/
 public class CollisionSystem { // STATIC CLASS. JUST A BUNCH OF METHODS THAT TEST AND DO CERTAIN THINGS.
 
 
 
-																	//Alien	bullet
+	/*If two objects that have Action implemented and are nodes are in the same space
+		then the hit methods will be activated and the method will return true 
+		to indicate that a hit occured*/																//Alien	bullet
 	public static  <T extends Node & Actions> boolean collisionAction(T obj1, T obj2){ // Use for Alien March
 		//obj12
 		

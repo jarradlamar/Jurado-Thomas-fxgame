@@ -6,7 +6,7 @@ import com.michaelcotterell.game.Game;
 
 import javafx.scene.Group;
 import javafx.scene.image.ImageView;
-
+/*This has an alien in it. Used for an extra layer of control*/
 public class AlienSprite extends Thread {
 
 protected String alienID;

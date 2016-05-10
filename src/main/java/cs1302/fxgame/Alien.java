@@ -11,6 +11,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 
+
+/*This class represents an ALien. It is basically an imageView (sprite) and it */
 public class Alien extends Sprite implements Actions {
 
 protected Image img1;
@@ -40,6 +42,7 @@ protected Group root;
 				
 	}
 	
+	/*sometimes an alien can shoot a lazer down the screen That lazer gets added to the laserList of the Game*/
 	public void attack(GameLab g, ArrayList<Laser> laserList){
 		//System.out.println("it made it to the attack method inside Alien!!!!");
 

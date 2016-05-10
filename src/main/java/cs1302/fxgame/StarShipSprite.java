@@ -5,6 +5,8 @@ import com.michaelcotterell.game.Game;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 
+
+/*alows us to access the star ship*/
 public class StarShipSprite extends Thread{
 
 protected StarShip player;
