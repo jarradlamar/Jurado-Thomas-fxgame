@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.michaelcotterell.game.Game;
 import com.michaelcotterell.game.GameTime;
+import com.michaelcotterell.game.util.TimeSpan;
 
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
@@ -12,13 +13,15 @@ import javafx.stage.Stage;
 
 public class GameLab extends Game {
 	
-protected RecThread rT;
+ 
 protected AlienFleet a;
-protected InvertedRecThread rT2;
+
 protected StarShipSprite p;
 protected ArrayList<Laser> l1;
 protected int x;
 protected CollisionSystem sys;
+protected TimeSpan start;
+protected TimeSpan then;
 
 public GameLab(Stage stage){ // a = 60. b and c = 800.
 	super(stage, "GameLab", 60, 800, 650); //40 is perfect for right now.
@@ -36,7 +39,8 @@ public GameLab(Stage stage){ // a = 60. b and c = 800.
 	
 	l1 = new ArrayList();
 	sys = new CollisionSystem();
-	
+	start = TimeSpan.now();
+	then = TimeSpan.now();
 	
 	
 //	rT2 = new InvertedRecThread("Hey", 650, 300);
@@ -73,7 +77,12 @@ if(l1.isEmpty() == true){
 public void update(Game ga, GameTime t){
 	
 
+
+if(Math.abs(TimeSpan.now().getSeconds() - start.getSeconds()) > 1 ){
 a.shiftArmy();
+start = TimeSpan.now();
+}
+
 p.run(ga);
 this.a.fire(0,11, this);
 runList();

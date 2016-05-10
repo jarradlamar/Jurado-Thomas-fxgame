@@ -20,29 +20,29 @@ public class CollisionSystem { // STATIC CLASS. JUST A BUNCH OF METHODS THAT TES
  *  if the location of obj2 is less than the right hand 
  */
 
-	public static void collisionAction1( RecThread s1, InvertedRecThread s2){
-		double topLeftCornerOfObj1 = 0;
-		double topLeftCornerOfObj2 = 0;
-		double bottomRightCornerOfObj1 = 0;
-		
-		
-		
-		
-		topLeftCornerOfObj1 = s1.getXPlacementInt() + s1.getYPlacementInt();
-		bottomRightCornerOfObj1 = s1.returnRec().getWidth() + s1.returnRec().getHeight() + topLeftCornerOfObj1; // gives the coordinate of the bottom right corner at every move.
-		topLeftCornerOfObj2 = s2.getXPlacementInt() + s2.getYPlacementInt();
-		
-		System.out.println( "s1:" + topLeftCornerOfObj1 + " " + "bottom of s1:" +  bottomRightCornerOfObj1 + " " + "s2:" + topLeftCornerOfObj2);
-		
-		if( (topLeftCornerOfObj1 < topLeftCornerOfObj2) && (topLeftCornerOfObj2 < (bottomRightCornerOfObj1-40)) ){
-			
-		s1.changeColor(Color.BLUE);	
-		s2.changeColor(Color.PINK);
-		
-		s1.setGo(false);	
-		s2.setGo(false);
-		}
-	}
+//	public static void collisionAction1( RecThread s1, InvertedRecThread s2){
+//		double topLeftCornerOfObj1 = 0;
+//		double topLeftCornerOfObj2 = 0;
+//		double bottomRightCornerOfObj1 = 0;
+//		
+//		
+//		
+//		
+//		topLeftCornerOfObj1 = s1.getXPlacementInt() + s1.getYPlacementInt();
+//		bottomRightCornerOfObj1 = s1.returnRec().getWidth() + s1.returnRec().getHeight() + topLeftCornerOfObj1; // gives the coordinate of the bottom right corner at every move.
+//		topLeftCornerOfObj2 = s2.getXPlacementInt() + s2.getYPlacementInt();
+//		
+//		System.out.println( "s1:" + topLeftCornerOfObj1 + " " + "bottom of s1:" +  bottomRightCornerOfObj1 + " " + "s2:" + topLeftCornerOfObj2);
+//		
+//		if( (topLeftCornerOfObj1 < topLeftCornerOfObj2) && (topLeftCornerOfObj2 < (bottomRightCornerOfObj1-40)) ){
+//			
+//		s1.changeColor(Color.BLUE);	
+//		s2.changeColor(Color.PINK);
+//		
+//		s1.setGo(false);	
+//		s2.setGo(false);
+//		}
+//	}
 	
 	public static void collisionAction2( AlienFleet s1, ArrayList<Laser> s2){ // Use for Alien March
 	
