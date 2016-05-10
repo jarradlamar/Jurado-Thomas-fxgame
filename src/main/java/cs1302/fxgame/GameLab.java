@@ -28,7 +28,7 @@ public GameLab(Stage stage){ // a = 60. b and c = 800.
 	getSceneNodes().getChildren().add(r);
 	x=0;
 	
-	a = new AlienFleet();
+	a = new AlienFleet(800,650);
 	a.make(54, this);
 	
 	p = new StarShipSprite("player", this,0.0,800.0,0,600,7);
@@ -73,7 +73,7 @@ if(l1.isEmpty() == true){
 public void update(Game ga, GameTime t){
 	
 
-//sys.collisionAction2(a, l1);
+a.shiftArmy();
 p.run(ga);
 this.a.fire(0,11, this);
 runList();
