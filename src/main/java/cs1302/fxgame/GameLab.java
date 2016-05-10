@@ -38,7 +38,7 @@ public GameLab(Stage stage){ // a = 60. b and c = 800.
 	p = new StarShipSprite("player", this,0.0,800.0,0,600,7);
 	p.setPriority(8);
 	
-	l1 = new ArrayList();
+	l1 = new ArrayList<Laser>();
 	sys = new CollisionSystem();
 	start = TimeSpan.now();
 	then = TimeSpan.now();
@@ -81,11 +81,15 @@ start = TimeSpan.now();
 }
 
 for(int i=0; i> l1.size(); i++ ){
-sys.collisionAction(a.fleetNode.getChildren().get(i), l1.get(i),this);
+sys.collisionAction(a.fleet.get(i).alien, l1.get(i),this);
+}
+
 p.run(ga);
 this.a.fire(0,11, this);
 runList();
-}
+	
+
+
 
 
 /* Ideally I want a rectangle to go forward to a certain length and then another rectangle pop up behind it.*/

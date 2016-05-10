@@ -8,7 +8,7 @@ import javafx.scene.shape.Rectangle;
 public class Laser extends Rectangle implements Actions {
 	
 	
-	protected Rectangle con;
+	
 	protected int xPlacement;
 	protected int yPlacement;
 	protected int yPlacementInt;
@@ -36,8 +36,8 @@ public Laser(GameLab g, Sprite s){
 	 yPlacementInt = yPlacement;
 	 xPlacementInt = xPlacement;
 	 //-----------------
-	 con.setX(xPlacement);
-	 con.setY(yPlacement);
+	 this.setX(xPlacement);
+	 this.setY(yPlacement);
 
 	 g.getSceneNodes().getChildren().add(this); // adds the rectangle from the list index to the scene of GameLab.
 	 this.increaseIndex();
@@ -60,7 +60,7 @@ if(follow ==  true ){
 	System.out.println(yPlacementInt);
 	yPlacementInt -= 4; // a tag on to be used for the CollisionSystem
 	
-	con.setTranslateY( con.getTranslateY()- 4); // moves the rectangle down the screen by con.getY().
+	this.setTranslateY( this.getTranslateY()- 4); // moves the rectangle down the screen by con.getY().
 	
 	
 }
@@ -68,14 +68,14 @@ if(follow ==  true ){
 
 
 if(yPlacementInt <= 0){ // use this is CollisionSystem.
-	con.setTranslateX(s.getTranslateX());
-	con.setTranslateY(s.getY());
+	this.setTranslateX(s.getTranslateX());
+	this.setTranslateY(s.getY());
 //	con.setVisible(false);
-	con.setFill(Color.DARKRED);
+	this.setFill(Color.DARKRED);
 //	yPlacementInt = (int) s.getY(); // sets back to original value and stops there from being a loop of this same command in the GameLab update method
 	this.follow = true;
 	
-	System.out.println(   con + " is now invisible. Follow Switched Back to true and using next ammo index");
+	System.out.println(   this + " is now invisible. Follow Switched Back to true and using next ammo index");
 
 	
 
@@ -92,7 +92,7 @@ if(follow ==  true ){
 	System.out.println(yPlacementInt);
 	yPlacementInt += 4; // a tag on to be used for the CollisionSystem
 	
-	con.setTranslateY( con.getTranslateY() - 4); // moves the rectangle down the screen by con.getY().
+	this.setTranslateY( this.getTranslateY() - 4); // moves the rectangle down the screen by con.getY().
 	
 	
 }
@@ -100,10 +100,10 @@ if(follow ==  true ){
 
 
 if(yPlacementInt >= 600){ // use this is CollisionSystem.
-	con.setTranslateX(s.getTranslateX());
-	con.setTranslateY(s.getY());
+	this.setTranslateX(s.getTranslateX());
+	this.setTranslateY(s.getY());
 //	con.setVisible(false);
-	con.setFill(Color.DARKRED);
+	this.setFill(Color.DARKRED);
 //	yPlacementInt = (int) s.getY(); // sets back to original value and stops there from being a loop of this same command in the GameLab update method
 
 	
@@ -122,11 +122,15 @@ public int getYPlacementInt(){
 
 public void hit(GameLab gl){
 	System.out.println("Removed");
-	gl.getSceneNodes().getChildren().remove(this.con);
+	gl.getSceneNodes().getChildren().remove(this);
 }
 
 
 public int getID(){
 	return id;
+}
+
+public Rectangle giveRectangle(){
+	return this;
 }
 }

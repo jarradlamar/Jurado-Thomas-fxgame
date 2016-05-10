@@ -21,5 +21,7 @@ public class CollisionSystem { // STATIC CLASS. JUST A BUNCH OF METHODS THAT TES
 			obj2.hit(gl); //bullet to dissapear
 		}
   }
+
+
 	
 }
